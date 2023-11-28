@@ -1,9 +1,5 @@
 //use std::mem;
 
-fn analyze_slice(slice: &[i32]){
-    println!("the first element of the slice is {}", slice[0]);
-    println!("the slice has {} elements ", slice.len());
-}
 
 /*
 Here’s a small programming problem: 
@@ -56,13 +52,19 @@ fn remove_letter(the_letter: char, the_string: &String) -> String {
     // now would like to say all the letters in this vector are now the string
     return_string
 }
+
+fn analyze_slice(slice: &[i32]){
+    println!("the first element of the slice is {}", slice[0]);
+    println!("the slice has {} elements ", slice.len());
+}
+
  //fn sum_a_list()
 
 fn main() {
     let number =  25; 
     let _squared_number = square(number);
     println!("this is the number squared {} ",_squared_number);
-    //write a program to comnpute the sum of numbers 
+    // write a program to comnpute the sum of numbers 
     // from 1 squared to the number enters (for now is hardcoded)
     let mut sum_of_squares = 0;
     for i in 1..number{
