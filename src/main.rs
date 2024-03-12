@@ -58,6 +58,25 @@ fn analyze_slice(slice: &[i32]){
     println!("the slice has {} elements ", slice.len());
 }
 
+fn dcrust_csar(crusty: String, shifter: i32)-> String {
+    let the_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let mut uncrusted = "";
+    
+    for letter in the_alphabet.as_bytes() {
+        //let mut shifted_letter = &letter; 
+        if the_alphabet.contains(letter) {
+            let index = the_alphabet.chars().position(|r| r == letter).unwrap();
+            // now handle if the handle rolls over to the next 
+            // index - the_alphabet.length() 
+            let shifted_letter = the_alphabet[index as i32 + shifter];
+            println!("{shifted_letter}");
+            uncrusted = &uncrusted + &shifted_letter;
+        }
+
+    }
+    return uncrusted.to_string();
+}
+
  //fn sum_a_list()
 
 fn main() {
@@ -108,7 +127,7 @@ fn main() {
     analyze_slice(&analyze_me[1..]);
     
     let empty_array: [u32; 0] = [];
-    assert_eq!(&empty_array, &[]);
+    assert_eq!(&empty_array, &[]); 
 
     for i in 0..analyze_me.len() {
         match analyze_me.get(i){
@@ -116,4 +135,10 @@ fn main() {
             None => println!("nothing to print!"),
         }
     }
+
+    // 7. make a decrypt cypher function / it just shifts each letter down the alphabet
+    let to_decrypt = String::from("vw");
+    let shift = -3;
+    let decrypted = dcrust_csar(to_decrypt, shift);
+    println!("{}an is not what he seems", decrypted);
 }
