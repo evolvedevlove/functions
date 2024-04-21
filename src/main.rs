@@ -77,6 +77,26 @@ fn dcrust_csar(crusty: String, shifter: i32)-> String {
     return uncrusted.to_string();
 }
 
+enum Flip {
+    Front,
+    Back,
+    Side,
+    Rodeo,
+    Cork,
+    Misty
+}
+
+fn age_i_was_when_i_learned(flip: Flip) -> u8 {
+    match flip {
+        Flip::Front => 13,
+        Flip::Back => 15,
+        Flip::Side => 26,
+        Flip::Rodeo => 27,
+        Flip::Cork => 30,
+        Flip::Misty => 15
+    }
+}
+
  //fn sum_a_list()
 
 fn main() {
@@ -141,4 +161,7 @@ fn main() {
     let shift = -3;
     let decrypted = dcrust_csar(to_decrypt, shift);
     println!("{}an is not what he seems", decrypted);
+
+    // 8. make and use an enum to handle the axis of spinning
+    
 }
